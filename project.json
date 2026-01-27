@@ -1,14 +1,14 @@
 {
   "name": "Часы Пинг-Понг🎾",
   "about": "Часы из шариков для пинг-понга",
-  "version": "2.19",
+  "version": "1.20",
   "notes": "Релиз",
   "builds": [
     {
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "https://github.com/SinicinDenis/rtc_ballclock_2026/blob/main/bin/firmware.bin",
+          "path": "https://raw.githubusercontent.com/SinicinDenis/rtc_ballclock_strelka/main/bin/firmware.bin",
           "offset": 0
         }
       ]
