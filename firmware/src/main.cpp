@@ -9,9 +9,9 @@ TwoWire WIRE1 (0);
 #include <iarduino_I2C_Software.h>	
 
 
-iarduino_RTC time_rtc(RTC_DS3231);
+//iarduino_RTC time_rtc(RTC_DS3231);
 
-//iarduino_RTC time_rtc(RTC_DS1302, 25, 27, 26);  //DS1302, RST, CLK, DAT.
+iarduino_RTC time_rtc(RTC_DS1302, 25, 27, 26);  //DS1302, RST, CLK, DAT.
 
 
 
@@ -60,7 +60,7 @@ void setup() {
         Serial.println("Вайфай коннектор");
         //delay(5000);
         //time_rtc.settime(NTP.second(), NTP.minute(), NTP.hour(), NTP.day(), NTP.month(), NTP.year(), NTP.weekDay());
-        //ota.checkUpdate();//Отключил обновление при старте
+        ota.checkUpdate();//Отключил обновление при старте
     });
 
     WiFiConnector.onError([]() {
