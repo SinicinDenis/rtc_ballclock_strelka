@@ -17,7 +17,7 @@
 
 extern iarduino_RTC time_rtc;
 
-AutoOTA ota(PROJECT_VER, PROJECT_URL);
+AutoOTA ota(PROJECT_VER, "https://raw.githubusercontent.com/SinicinDenis/rtc_ballclock_strelka/main/project.json");
 
 GyverDBFile db(&LittleFS, "/data.db");
 
