@@ -179,6 +179,16 @@ static void build(sets::Builder& b) {
             if (b.Button("wifi_save"_h, "Подключить")) {
                 Looper.pushEvent("wifi_connect");
             }
+            if (b.Button("Обновить")) {
+                Serial.println((int)ota.getError());
+                Serial.println(ota.version());
+                
+                ota.tick();
+                
+                if (ota.checkUpdate()) {
+                    ota.update();
+                }
+            }
 
         }
     }
