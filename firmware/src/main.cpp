@@ -4,7 +4,7 @@
 #include <RunningGFX.h>
 #include <WiFiConnector.h>
 #include <Wire.h>
-TwoWire WIRE1 (0);
+//TwoWire WIRE1 (0);
 
 #include <iarduino_RTC.h>
 #include <iarduino_I2C_Software.h>	
@@ -12,7 +12,7 @@ TwoWire WIRE1 (0);
 
 //iarduino_RTC time_rtc(RTC_DS3231);
 
-iarduino_RTC time_rtc(RTC_DS1302, 25, 27, 26);  //DS1302, RST, CLK, DAT.
+iarduino_RTC time_rtc(RTC_DS1302, 22, 23, 25);  //DS1302, RST, CLK, DAT.
 
 
 
@@ -47,7 +47,7 @@ void setup() {
     Serial.println("\n" PROJECT_NAME " v" PROJECT_VER);
     
     matrix.begin();
-    time_rtc.begin(&WIRE1);
+    time_rtc.begin();
     
     WiFiConnector.setName(PROJECT_NAME);
 
