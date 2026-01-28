@@ -179,23 +179,24 @@ static void build(sets::Builder& b) {
             if (b.Button("wifi_save"_h, "Подключить")) {
                 Looper.pushEvent("wifi_connect");
             }
-            if (b.Button("Обновить")) {
-                Serial.println((int)ota.getError());
-                Serial.println(ota.version());
-                
-                ota.tick();
-                
-                if (ota.checkUpdate()) {
-                    ota.update();
-                }
-            }
-
         }
     }
     {
         sets::Group g(b, "Бегущая строка");
         if (b.Switch(kk::run_str_, " Запуск Строки ▶")) b.reload();
         b.Input(kk::run_str_in, "Ввод строки");
+        
+    }
+    {
+        sets::Group g(b, "Обновление по Wifi");
+        if (b.Button("Обновить")) {
+            Serial.println((int)ota.getError());
+            Serial.println(ota.version());
+            ota.tick();
+            if (ota.checkUpdate()) {
+                ota.update();
+                }
+            }
         
     }
     if (b.Confirm("ota_update"_h)) {
