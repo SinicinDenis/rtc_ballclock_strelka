@@ -106,6 +106,16 @@ static void drawClock() {
     matrix.setModeDiag();
 
     if (!NTP.synced()) {
+        time_rtc.gettime();
+        //Serial.print("NTP не синх ");
+        //Serial.println(NTP.synced());
+        Datime dt(time_rtc.year, time_rtc.month,time_rtc.day,time_rtc.Hours,time_rtc.minutes, time_rtc.seconds);
+        //Serial.print(dt.hour);
+        //Serial.print(":");
+        //Serial.print(dt.minute);
+        //Serial.print(":");
+        //Serial.println(dt.second);
+        //Serial.println(time_rtc.gettime("H:i:s"));
         //Serial.println(time_rtc.gettime("H:i:s"));
         switch (db[kk::clock_style].toInt()) {
             case 1:
